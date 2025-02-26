@@ -1,0 +1,148 @@
+#check repo 2_docker_sql/README.md
+
+
+wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
+
+# answer: (227 MB/s) - 'Anaconda3-2021.11-Linux-x86_64.sh' saved [608680744/608680744]
+
+bash Anaconda3-2021.11-Linux-x86_64.sh
+
+less .bashrc
+source .bashrc
+
+which python 
+#check that python version is 3.9.7
+import pd
+pd.version
+#check that pandas version is 1.3.4
+
+#copy course repo
+git clone hhtps...
+
+sudo apt-get install docker.io
+sudo apt-get update
+sudo groupadd docker
+
+#docker without sudo - whyyy? https://github.com/sindresorhus/guides/blob/main/docker-without-sudo.md
+#sudo gpasswd -a $USER docker
+#Log out and log back in so that your group membership is re-evaluated.
+#sudo service docker restart
+
+
+#check docker is ok
+#(sudo) docker run hello-word
+
+
+#docker run -it ubuntu bash 
+#don´t need - I already have ubuntu there
+
+
+#download docker compose from https://github.com/docker/compose/releases
+#v.2.2.3
+mkdir ~/bin # why in user, not /bin?
+cd ~/bin
+wget https... -O docker-compose  #link on docker compose v.2.2.3
+chmod +x docker-compose #tell system it is executable 
+                        #(should be green in ls after)
+#check
+#./docker-compose version
+
+#saying we havw new folder with executables
+cd
+vim .bashrc
+#add at the end of the file:
+#export PATH="${HOME}/bin:${PATH}"
+source .bashrc #evaluate
+#check
+#which docker-compose
+
+#download images for postgres and pgadmin
+#why? for fun?
+cd #course repo - folder 2_docker_sql
+   #it has docker-compose.yaml
+docker compose up -d #deattach mode??
+#check
+docker ps 
+
+cd
+#pip install pgcli #what is this? 
+                   #don`t run, install with conda (see lower)
+
+#responce: Successfully installed 
+#                                 cli-helpers-2.2.1 
+#                                 configobj-5.0.6 
+#                                 humanize-3.13.1 
+#                                 pgcli-1.9.0 
+#                                 pgspecial-1.11.5 
+#                                 prompt-toolkit-1.0.18 
+#                                 psycopg2-binary-2.9.3 
+#                                 setproctitle-1.2.2 
+#                                 sqlparse-0.2.4 
+#                                 tabulate-0.8.9
+pgcli -h localhost -U root -d ny_taxi #what is this?
+#psswd is root
+#check - we have some errors
+\dt #but here we see the schema
+#ctrl+d for exit
+
+#fixing:
+#pip uninstall pgcli 1.9.0
+#use conda to install it instead
+conda install -c conda-forge pgcli
+#see https://youtu.be/ae-CV2KfoN0?si=ttf3d88vhnz21kFt&t=1840
+#(30:40)
+pip install -U mycli
+#Successfully installed 
+#                        PyMySQL-1.0.2 
+#                        mycli-1.24.2 
+#                        prompt-toolkit-3.0.24 
+#                        pyaes-1.6.1 
+#                        pyperclip-1.8.2
+#also see warning!
+
+#check:
+#\dt
+#ctrl+d for exit
+
+#docker ps (earlier) said:
+#PORTS 0.0.0.0:543
+#this is our local port
+
+#just for fun:
+#in VSL open terminal -> PORTS -> forward port 
+#-> port 5432
+#we can use this port from our local mashine 
+#on local check:
+    #docker kill cont_if #if I have some local 
+    #pgcli -h localhost -U root -d ny_taxi
+#in VSL open terminal -> PORTS -> forward port 
+#-> port 8080
+#in browser:
+#localhost:8080/browser/
+#it should be pgAdmin
+
+#to start jupyter on VM:
+jupyter notebook
+#will give link with a port (8888)
+#in VSL open terminal -> PORTS -> forward port 
+#-> port 8888
+#then open the link in the browser
+
+#then at 35:44 https://youtu.be/ae-CV2KfoN0?si=odASm8bk2r7iXjVf
+#working with a course data
+
+cd bin/
+wget https... #terraform 1.1.3 from off web-site
+#thish should be zip
+sudo apt get install unzip
+unzip #terraform_file_name.zip
+rm #terraform_file_name.zip
+#check:
+terraform version # 1.1.3 on linux_amd64 
+                  #why? we have linux y86-64
+#then he is planning terragorm from  repo 1_terraform_gcp/terraform
+#but firtst connecting service acc, etc 
+#40:19 https://youtu.be/ae-CV2KfoN0?si=9BtcE10A-uBFpxa9&t=2419
+#he uses SPTP Try! 
+
+#how to do backups??
