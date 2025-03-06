@@ -1,0 +1,8 @@
+FROM jupyter/base-notebook
+COPY requirements-python.txt /
+COPY requirements-sqlalchemy.txt /
+USER root
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends vim
+USER jovyan
+RUN pip install --no-cache-dir -r /requirements-python.txt
