@@ -2,6 +2,6 @@ FROM jupyter/base-notebook:x86_64-ubuntu-22.04
 COPY requirements-python.txt /
 USER root
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends vim
+  && apt-get install -y --no-install-recommends vim git
 USER jovyan
 RUN pip install --no-cache-dir -r /requirements-python.txt
