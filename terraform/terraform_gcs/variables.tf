@@ -51,7 +51,7 @@ variable "gcs_project" {
 
 variable "vm_image" {
   description = "Google Cloud Compute Instance Device Image"
-  default     = "projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20250214"
+  default     = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20250213"
 }
 
 variable "bq_dataset_id" {
