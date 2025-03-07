@@ -1,7 +1,9 @@
 * Apply Terraform 
-* Install docker==27.5.1 and docker-compose==v2.32.4-desktop.1 on the cloud VM
-* Pull this repository
-* In ./docker/ run
+* On VM:
+    **clone this repository
+    **install Docker and Docker-Compose
+        bash ./de-zoomcamp-infrastracture/terraform/terraform_install_docker.bash
+* In ./de-zoomcamp-infrastracture/docker/ run
         docker compose build
         docker compose up
 * If you don't have a database yet run
