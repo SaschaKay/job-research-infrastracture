@@ -55,48 +55,6 @@ services:
       postgres:
         condition: service_healthy
 
-  # airflow_webserver:
-  #   #image: apache/airflow:2.5.1
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile-Airflow
-  #   container_name: airflow_webserver
-  #   restart: unless-stopped
-  #   environment:
-  #     AIRFLOW__CORE__EXECUTOR: LocalExecutor
-  #     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ${AIRFLOW__DATABASE__SQL_ALCHEMY_CONN}
-  #     AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
-  #   ports:
-  #     - "8081:8080"
-  #   volumes:
-  #     - airflow_data:/opt/airflow
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-  # # docker exec -it airflow_webserver airflow db init
-  #   command: ["webserver"]
-
-  # airflow_scheduler:
-  #   #image: apache/airflow:2.5.1
-  #   build: 
-  #     context: .
-  #     dockerfile: Dockerfile-Airflow
-  #   container_name: airflow_scheduler
-  #   restart: always
-  #   environment:
-  #     AIRFLOW__CORE__EXECUTOR: LocalExecutor
-  #     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ${AIRFLOW__DATABASE__SQL_ALCHEMY_CONN}
-  #     AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
-  #   ports:
-  #     - "8793:8793"
-  #   volumes:
-  #     - airflow_data:/opt/airflow
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-  #   command: ["scheduler"]
-
-
 volumes:
   postgres_data:
   pgadmin_data:
