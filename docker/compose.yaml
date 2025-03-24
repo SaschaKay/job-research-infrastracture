@@ -9,7 +9,8 @@ services:
     environment:
       - JUPYTER_ENABLE_LAB=yes
     ports:
-      - "8888:8888"  # Jupyter
+      - "8888:8888" 
+      - "8889:8889"
       - "5000:5000"  
     volumes:
       - jupyter_data:/home/jovyan/work
@@ -45,10 +46,8 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-    expose:
-      - 80
     ports: 
-      - "8080:80"
+      - "80:80"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
