@@ -1,0 +1,1 @@
+sudo chown -R 50000:0 /opt/docker/airflow

@@ -11,3 +11,4 @@
         docker-compose restart airflow_webserver 
         docker exec airflow_scheduler airflow db init
         docker-compose restart airflow_scheduler 
+
