@@ -1,0 +1,14 @@
+--constraint constraints-airflow.txt
+beautifulsoup4
+matplotlib
+matplotlib-inline
+numpy
+pandas-gbq
+pandas-stubs
+pandas
+psycopg2-binary
+pyarrow
+requests
+seaborn
+SQLAlchemy
+html5lib
