@@ -2,10 +2,11 @@
 
 TODO:
 * review git ignore
-* * terraform/terraform_install_docker.bash - fixate versions
+* push excamples of missing git ignore files with comments
+* terraform/terraform_install_docker.bash - fixate versions
 * add links to zoomcamp repo with tutorials
 * add commands (or better bash files with comments???)
-* description of containers
+* add descriptions of containers
 * add anchors and links
 * formatting
 
