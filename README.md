@@ -1,6 +1,5 @@
 **_In process..._**
-
-TODO:
+_TODO:
 * review git ignore
 * push excamples of missing git ignore files with comments
 * terraform/terraform_install_docker.bash - fixate versions
@@ -8,7 +7,7 @@ TODO:
 * add commands (or better bash files with comments???)
 * add descriptions of containers
 * add anchors and links
-* formatting
+* formatting_
 
 
 Before starting, you should already have:
