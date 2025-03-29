@@ -50,10 +50,10 @@ You can still follow along, but will need to adjust things manually:
    > :warning: DO NOT PUSH YOUR ACTUAL KAYS TO YOUR GIT REPO
 2. Apply it in <mark >de-zoomcamp-infrastracture/terraform/terraform_gcs/</mark> to create a VM
 
-   ````bash
+````bash
    terraform init
    terraform apply
-   ````
+ ````
 
 
   
@@ -61,12 +61,13 @@ You can still follow along, but will need to adjust things manually:
 
 OS Login allows secure, reusable SSH access without rotating temporary keys.
 1. Create SSH key on your local machine (locally, e.g., in WSL)
-   ````bash
+   
+````bash
    ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "your_email@example.com"
    ssh-keygen -f ~/.ssh/known_hosts -R "YOUR_VM_IP"
-   ````
+````
 
-2. Enabled OS Login in Google Cloud Console
+3. Enabled OS Login in Google Cloud Console
   Via GCP UI go to Compute Engine → Metadata -> add Custom metadata
      Key: enable-oslogin
      Value: TRUE
@@ -83,18 +84,18 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
 
 #### 🔐 If you want to access files created under a previous user:
     
-    ````bash
-    sudo chown -R $USER:YOUR_OLD_USER_NAME /home/YOUR_OLD_USER_NAME
-    ``````
+````bash
+   sudo chown -R $USER:YOUR_OLD_USER_NAME /home/YOUR_OLD_USER_NAME
+``````
     
 #### 🔐 If you want to have same SSH connections as a previous user:
 
-    ````bash
-    sudo cp -r /home/PRECIOUS_USER/.ssh ~
-    sudo chown -R $USER:$USER ~/.ssh
-    chmod 700 ~/.ssh
-    chmod 600 ~/.ssh/*
-    ``````
+````bash
+   sudo cp -r /home/PRECIOUS_USER/.ssh ~
+   sudo chown -R $USER:$USER ~/.ssh
+   chmod 700 ~/.ssh
+   chmod 600 ~/.ssh/*
+``````
 
 #### 🔐 If you want to have full sudo access to your new user
 
@@ -106,31 +107,37 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
 #### 💻 If you work from WSL, but want to use VS Code or another IDE
 
 1. In WSL:
-
-       cp ~/.ssh/id_ed25519* /mnt/c/Users/YOUR_WINDOWS_USER/.ssh/
-2. In PowerShell:
-  
-       icacls "C:\Users\YOUR_WINDOWS_USER\.ssh\id_ed25519" /inheritance:r /grant:r "%USERNAME%:R"
-       (Get-Content "$env:USERPROFILE\.ssh\known_hosts") -notmatch "YOUR\.IP\.WITH\.BACKSLASHES" | Set-Content "$env:USERPROFILE\.ssh\known_hosts"
-
+   
+````bash
+   cp ~/.ssh/id_ed25519* /mnt/c/Users/YOUR_WINDOWS_USER/.ssh/
+````
+3. In PowerShell:
+   
+````powershell
+   icacls "C:\Users\YOUR_WINDOWS_USER\.ssh\id_ed25519" /inheritance:r /grant:r "%USERNAME%:R"
+   (Get-Content "$env:USERPROFILE\.ssh\known_hosts") -notmatch "YOUR\.IP\.WITH\.BACKSLASHES" | Set-Content "$env:USERPROFILE\.ssh\known_hosts"
+````
       
 #### 🔁 If you want to create a VM name alias for easier use
 
-  Add in ~/.ssh/config
-  
-      Host YOUR_VM_ALIAS
-        HostName YOUR_VM_PUBLUC_IP
-        User YOUR_OS_LOGIN_USER
-        IdentityFile ~/.ssh/id_ed25519
+Add in ~/.ssh/config
+
+````bash
+   Host YOUR_VM_ALIAS
+      HostName YOUR_VM_PUBLUC_IP
+      User YOUR_OS_LOGIN_USER
+      IdentityFile ~/.ssh/id_ed25519
+````
 
         
 #### 🐳 If you want to use Docker without sudo
 
-  On your GCP VM:
+On your GCP VM:
 
-      sudo usermod -aG docker $USER
-      newgrp docker  # or logout/login
-  
+````bash
+   sudo usermod -aG docker $USER
+   newgrp docker  # or logout/login
+````
 
 
 ## 🧱 How to build and run containers?
@@ -138,8 +145,9 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
 1. Install Docker and Docker-Compose via <mark >de-zoomcamp-infrastracture/terraform/terraform_install_docker.bash</mark>
 2. In <mark >de-zoomcamp-infrastracture/docker/</mark> run
    
-       sudo docker compose build
-       sudo docker compose up
-   
+````bash
+   sudo docker compose build
+   sudo docker compose up
+````
 > 📝 Check <mark >de-zoomcamp-infrastracture/docker/README.md</mark> for containers descriptions and SSH tunneling how-to.
 
