@@ -77,16 +77,24 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
 
 
    >  :memo: This will create a new user named by your email with all special symbols replaced by _ (for example, your_email_gmail_com)
+   
+   
+### Some optional steps for different situations
 
- 4. (Optional) Fix access to old folders
-    If you're trying to access files created under a previous user:
+#### 🔐 If you want to access files created under a previous user:
     
     ````bash
     sudo chown -R $USER:YOUR_OLD_USER_NAME /home/YOUR_OLD_USER_NAME
     ``````
-   
-### Some optional steps for different situations
+    
+#### 🔐 If you want to have same SSH connections as a previous user:
 
+    ````bash
+    sudo cp -r /home/PRECIOUS_USER/.ssh ~
+    sudo chown -R $USER:$USER ~/.ssh
+    chmod 700 ~/.ssh
+    chmod 600 ~/.ssh/*
+    ``````
 
 #### 🔐 If you want to have full sudo access to your new user
 
