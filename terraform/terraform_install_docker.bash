@@ -18,3 +18,7 @@ newgrp docker
 docker --version #Docker version 28.0.1, build 068a01e
 docker compose version #Docker Compose version v2.33.1
 docker run hello-world
+
+#will be needed later for Airflow initialisation
+sudo mkdir -p /opt/docker/airflow/{dags,logs,google}
+sudo chown -R 50000:0 /opt/docker/airflow #50000 is an airflow user
