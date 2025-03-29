@@ -25,7 +25,7 @@
 You should already have:
 
 - An **active Google Cloud account**
-- A **configured SSH connection** to your GCP project with permissions to create instances _(TODO: specify exact IAM roles late)_
+- A **configured SSH connection** to your GC project with permissions to create instances _(TODO: specify exact IAM roles late)_
 - **Terraform installed** on your local machine
 
 > If you're missing any of this, check the official [Zoomcamp repo](#) _(TODO: add link)_
@@ -36,7 +36,7 @@ You should already have:
 You can still follow along, but will need to adjust things manually:
 
 - Configure a VM on another cloud manually.  
-  For compatibility check the same VM image shown in <mark>terraform/terraform_gcs/variables.tf</mark> aind matching images via [Ubuntu Cloud Image Finder](https://cloud-images.ubuntu.com/locator/)
+  For compatibility check the same VM image shown in <mark>terraform/terraform_gcs/variables.tf</mark> and find matching images via [Ubuntu Cloud Image Finder](https://cloud-images.ubuntu.com/locator/)
 
 - Or run everything on any other image and _deal with the consequences_   
   (Check docker version used in `<mark>terraform/terraform_install_docker.bash</mark>`)
@@ -44,10 +44,10 @@ You can still follow along, but will need to adjust things manually:
 
 ## 🛠️ How to create a VM in Google Cloud?
 
-1. Copy this repository to your machine with a configured SSH connection to your Google Cloud
-2. Change key file in `de-zoomcamp-infrastracture/terraform/terraform_gcs/keys/` (in this folder you can see an _example_ of how these file looks).
+1. Copy this repository to a machine with a configured SSH connection to your Google Cloud
+2. Change key file in `de-zoomcamp-infrastracture/terraform/terraform_gcs/keys/` (in this folder you can see an _example_ of how this file looks).
    
-   > :warning: DO NOT PUSH YOUR ACTUAL KAYS TO YOUR GIT REPO
+   > :warning: DO NOT PUSH YOUR ACTUAL KEYS TO YOUR GIT REPO
 2. Apply it in `de-zoomcamp-infrastracture/terraform/terraform_gcs/` to create a VM
 
 ````bash
@@ -77,7 +77,7 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
     3. Save
 
 
-   >  :memo: This will create a new user named by your email with all special symbols replaced by _ (for example, your_email_gmail_com)
+   >  :memo: This will create a new user with the name being your email address with all special symbols replaced by '_' _(underscore)_ (for example, your_email_gmail_com)
    
    
 ### Some optional steps for different situations
@@ -142,7 +142,7 @@ On your GCP VM:
 
 ## 🧱 How to build and run containers?
 
-1. Install Docker and Docker-Compose via <mark >de-zoomcamp-infrastracture/terraform/terraform_install_docker.bash</mark>
+1. Install Docker and Docker-Compose via `de-zoomcamp-infrastracture/terraform/terraform_install_docker.bash`
 2. Create `.env` file in `de-zoomcamp-infrastracture/docker/`, copy `.env.txt` contents in your `.env` file
 3. Follow instructions in the comments in `.env.txt`
 2. In `de-zoomcamp-infrastracture/docker/` run
