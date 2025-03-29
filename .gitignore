@@ -39,3 +39,5 @@ terraform.rc
 # Ignore my credential files
 **/keys/my-creds.json.save
 **/keys/my-creds.json
+
+**.env
