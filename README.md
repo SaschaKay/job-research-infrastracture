@@ -58,7 +58,7 @@ OS Login allows you to connect to your VM without rotating temporary SSH keys.
   Go to OS Login SSH Keys page
   Paste contents of id_ed25519.pub
   Save
-Note: this will create a new user named by your email with all special symbols replaced by _ (for example, your_email_gmail_com)
+> :memo: **Note:** this will create a new user named by your email with all special symbols replaced by _ (for example, your_email_gmail_com)
 
 #### Optional steps
 
