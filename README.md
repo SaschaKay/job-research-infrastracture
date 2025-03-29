@@ -2,13 +2,13 @@
 <em>
  TODO:
 * review git ignore
-* push excamples of missing git ignore files with comments
+* push examples of missing git ignore files with comments
 * terraform/terraform_install_docker.bash - fixate versions
-* add links to zoomcamp repo with tutorials
+* add links to Zoomcamp repo with tutorials
 * add commands (or better bash files with comments???)
-* add descriptions of ports and how to create tunnel
+* add descriptions of ports and how to create a tunnel
 * add descriptions of containers
-* add comments about stable ip
+* add comments about stable IP
   
 * add anchors and links
 * formatting
@@ -18,7 +18,7 @@
 You should already have:
 * active Google Cloud account
 * configured SSH connection to your Google Cloud account with permissions to create instances **_specify permissions_**
-* installed Terraform library on your machine with connection
+* installed Terraform library on your local machine
 If you're missing any of this, check **_add link to zoomcamp repo_**
 
 
@@ -37,10 +37,12 @@ Using Terraform configuration for GC from this repo guarantees that the rest of 
 OS Login allows you to connect to your VM without rotating temporary SSH keys.
 - Create SSH key on your local machine (for example, WSL)
 
-      ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "your_email@example.com"
-      ssh-keygen -f ~/.ssh/known_hosts -R "your-vm-ip"
-  As result you will have 
+      ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "YOUR_EMAIL"
+      ssh-keygen -f ~/.ssh/known_hosts -R "YOUR_VM_IP"
+  As a result, you will have
+  
   Public key: ~/.ssh/id_ed25519.pub
+  
   Private key: ~/.ssh/id_ed25519
 - Enabled OS Login in Google Cloud Console
   Via UI:
@@ -69,7 +71,7 @@ Note: this will create a new user named by your email with all special symbols r
   
       icacls "C:\Users\YOUR_WINDOWS_USER\.ssh\id_ed25519" /inheritance:r /grant:r "%USERNAME%:R"
 
-- If you want to create VM name alias for easier use
+- If you want to create a VM name alias for easier use
   Add in ~/.ssh/config
   
       Host YOUR_VM_DESIERED_NAME
