@@ -1,4 +1,4 @@
-# 🛠️ Seting up a VM and Docker Containers for DE Zoomcamp course
+# 🛠️ Setting up a VM and Docker Containers for the DE Zoomcamp course
 
 **_In process..._**
 <em>
@@ -38,17 +38,17 @@ You can still follow along, but will need to adjust things manually:
 - Configure a VM on another cloud manually.  
   For compatibility check the same VM image shown in <mark>terraform/terraform_gcs/variables.tf</mark> aind matching images via [Ubuntu Cloud Image Finder](https://cloud-images.ubuntu.com/locator/)
 
-- Or run everything on any othe imade and _deal with the consequences_   
+- Or run everything on any other image and _deal with the consequences_   
   (Check docker version used in `<mark>terraform/terraform_install_docker.bash</mark>`)
 
 
-## 🛠️ How to create a VM in Goodle Cloud?
+## 🛠️ How to create a VM in Google Cloud?
 
 1. Copy this repository to your machine with a configured SSH connection to your Google Cloud
-2. Change keys files in <mark >de-zoomcamp-infrastracture/terraform/terraform_gcs/keys/</mark> (in this folder you can see an _example_ of how these files look).
+2. Change key file in `de-zoomcamp-infrastracture/terraform/terraform_gcs/keys/` (in this folder you can see an _example_ of how these file looks).
    
    > :warning: DO NOT PUSH YOUR ACTUAL KAYS TO YOUR GIT REPO
-2. Apply it in <mark >de-zoomcamp-infrastracture/terraform/terraform_gcs/</mark> to create a VM
+2. Apply it in `de-zoomcamp-infrastracture/terraform/terraform_gcs/` to create a VM
 
 ````bash
    terraform init
@@ -68,11 +68,11 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
 ````
 
 3. Enabled OS Login in Google Cloud Console
-  Via GCP UI go to Compute Engine → Metadata -> add Custom metadata
+  Via GCP UI, go to Compute Engine → Metadata -> add Custom metadata
      Key: enable-oslogin
      Value: TRUE
 2. Upload public key to OS Login:
-    1. Go to OS Login SSH Keys page
+    1. Go to the OS Login SSH Keys page
     2. Paste contents of id_ed25519.pub
     3. Save
 
@@ -120,7 +120,7 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
       
 #### 🔁 If you want to create a VM name alias for easier use
 
-Add in ~/.ssh/config
+Add in `~/.ssh/config`
 
 ````bash
    Host YOUR_VM_ALIAS
@@ -143,11 +143,13 @@ On your GCP VM:
 ## 🧱 How to build and run containers?
 
 1. Install Docker and Docker-Compose via <mark >de-zoomcamp-infrastracture/terraform/terraform_install_docker.bash</mark>
-2. In <mark >de-zoomcamp-infrastracture/docker/</mark> run
+2. Create `.env` file in `de-zoomcamp-infrastracture/docker/`, copy `.env.txt` contents in your `.env` file
+3. Follow instructions in the comments in `.env.txt`
+2. In `de-zoomcamp-infrastracture/docker/` run
    
 ````bash
    sudo docker compose build
    sudo docker compose up
 ````
-> 📝 Check <mark >de-zoomcamp-infrastracture/docker/README.md</mark> for containers descriptions and SSH tunneling how-to.
+> 📝 Check `de-zoomcamp-infrastracture/docker/README.md` for containers descriptions and SSH tunneling how-to.
 
