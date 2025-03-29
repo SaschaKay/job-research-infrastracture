@@ -1,21 +1,6 @@
-_**Page in process...**_
-**TODO:**
-- add in Terraform 
-
-      sudo chown -R 50000:0 /opt/docker/airflow
-
-- Short cheat shit for Notebooks
-
-      docker exec -it <jupyter_container_name> jupyter notebook list # shows the running notebooks and their port numbers
-                                                                     # (for instance: 8080)
-    jupyter notebook stop 8889 
-                          
-- Short cheat shit for cleaning ports
-
-      lsof -n -i4TCP:[port-number] # shows PID.
-      kill -9 [PID] # kill the process.
-
-
+> ❗ Create `.env` file using `env.txt` as a template.
+> 
+> Do not push your `.env` file in the repository.
 
 ## 🐳 Project Containers Overview
 
@@ -25,12 +10,12 @@ _**Page in process...**_
 | `postgres`      | PostgreSQL database instance for metadata and storage         | 5432                   |
 | `pgadmin`       | Web UI for managing PostgreSQL                                | 5055 (mapped to port 80) | 
 | `init-airflow`  | One-time Airflow setup: DB migration, user creation           | —                      |
-| `scheduler`     | Airflow scheduler service                                     | —                      | 
+| `scheduler`     | Airflow scheduler and worker services                         | —                      | 
 | `webserver`     | Airflow web UI                                                | 8080                   | 
 
 ## 🗂️ Docker Volumes
 
-These named volumes persist data between container restarts and are used for sharing information across services.
+Data in these named volumes persists between container restarts.
 
 | Volume Name           | Used By           | Purpose                                                                 |
 |-----------------------|------------------|-------------------------------------------------------------------------|
@@ -55,10 +40,8 @@ Ports mapped from containers to the host system to enable access to web interfac
 
 ### Accessing Container Ports via SSH Tunnels
 
-Some IDEs create tunnels automatically. If you use VS Code with the Remote - SSH extension, it will notify you about available ports after you run docker compose up.
-Sometimes, after automatic reconnection through VS Code, you can't reach ports anymore. In this case, reload VS Code window manually or restart VS Code.
-
-To securely access services running on your VM, create an SSH tunnel from your local machine:
+Some IDEs create tunnels automatically. If you use VS Code with the Remote - SSH extension, it will notify you about available ports after you run `docker compose up`.
+Sometimes, after automatic reconnection through VS Code, you won't be able to reach ports anymore. In this case, reload VS Code window manually or restart VS Code.
 
 If you need to create a tunnel by hand, run
 
@@ -66,6 +49,23 @@ If you need to create a tunnel by hand, run
 ssh -N -L LOCAL_PORT:localhost:HOST_PORT your_user@your_vm_ip
 ```
 
-Where LOCAL_PORT you choose by yourself(usually the same as HOST_PORT).
+Where LOCAL_PORT you choose by yourself (usually the same as HOST_PORT).
 After running the command, open <http://localhost:LOCAL_PORT> in your browser.
+
+
+
+> 📝 Jupiter Notebook automatically assigns new ports for each new process. To see running notebooks and their port numbers, use:
+> ```bash
+> docker exec -it <jupyter_container_name> jupyter notebook list # shows the running notebooks and their port numbers
+> ```
+> You can stop a particular notebook using its port number:
+> ```bash
+> jupyter notebook stop 8889
+> ```
+                          
+> 📝 If you need to kill a process that is using a particular port on your local machine, run:
+> ```bash
+> lsof -n -i4TCP:[PORT] # shows PID.
+> kill -9 [PID] # kill the process.
+> ```
 
