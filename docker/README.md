@@ -56,15 +56,16 @@ Ports mapped from containers to the host system to enable access to web interfac
 ### Accessing Container Ports via SSH Tunnels
 
 Some IDEs create tunnels automatically. If you use VS Code with the Remote - SSH extension, it will notify you about available ports after you run docker compose up.
+Sometimes, after automatic reconnection through VS Code, you can't reach ports anymore. In this case, reload VS Code window manually or restart VS Code.
 
 To securely access services running on your VM, create an SSH tunnel from your local machine:
 
-If you need to create tunnel by hand, run
+If you need to create a tunnel by hand, run
 
 ```bash
 ssh -N -L LOCAL_PORT:localhost:HOST_PORT your_user@your_vm_ip
 ```
 
 Where LOCAL_PORT you choose by yourself(usually the same as HOST_PORT).
-After running the command, open http://localhost:LOCAL_PORT in your browser.
+After running the command, open <http://localhost:LOCAL_PORT> in your browser.
 
