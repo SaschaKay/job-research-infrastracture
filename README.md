@@ -7,13 +7,7 @@
 * push examples of missing git ignore files with comments
 * terraform/terraform_install_docker.bash - fixate versions
 * add links to Zoomcamp repo with tutorials
-* add commands (or better bash files with comments???)
-* add descriptions of ports and how to create a tunnel
-* add descriptions of containers
 * add comments about stable IP
-  
-* add anchors and links
-* formatting
 </em>
 
 ## 📚 Table of Contents
