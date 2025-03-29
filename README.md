@@ -4,10 +4,9 @@
 <em>
  TODO:
 * review git ignore
-* push examples of missing git ignore files with comments
 * terraform/terraform_install_docker.bash - fixate versions
 * add links to Zoomcamp repo with tutorials
-* add comments about stable IP
+* add comment about stable IP
 </em>
 
 ## 📚 Table of Contents
