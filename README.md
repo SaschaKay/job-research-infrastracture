@@ -56,7 +56,7 @@ OS Login allows you to connect to your VM without rotating temporary SSH keys.
   Save
 Note: this will create a new user named by your email with all special symbols replaced by _ (for example, your_email_gmail_com)
 
-#### Optional steps:
+#### Optional steps
 - If you want to have full sudo access to your new user
   Via GCP UI:
     Go to IAM & Admin → IAM
