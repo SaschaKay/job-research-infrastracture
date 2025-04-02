@@ -23,7 +23,7 @@ You should already have:
 
 - An **active Google Cloud account**.
 - A **configured SSH connection** to your GC project with permissions to create instances(service account with Compute Admin and Storage Admin roles).
-- **Terraform installed** on your local machine.
+- **Terraform(v1.11.3) installed** on your local machine.
 
 > If you're missing any of this, check the official [Zoomcamp repository](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform#movie_camera-gcp-cloud-vm)
 
