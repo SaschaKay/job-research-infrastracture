@@ -3,7 +3,6 @@
 **_In process..._**
 <em>
  TODO:
-* review git ignore
 * terraform/terraform_install_docker.bash - fixate versions
 * add links to Zoomcamp repo with tutorials
 * add comment about stable IP
