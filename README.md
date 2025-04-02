@@ -4,7 +4,6 @@
 <em>
  TODO:
 * terraform/terraform_install_docker.bash - fixate versions
-* add links to Zoomcamp repo with tutorials
 * add comment about stable IP
 </em>
 
@@ -22,11 +21,11 @@
 
 You should already have:
 
-- An **active Google Cloud account**
-- A **configured SSH connection** to your GC project with permissions to create instances _(TODO: specify exact IAM roles late)_
-- **Terraform installed** on your local machine
+- An **active Google Cloud account**.
+- A **configured SSH connection** to your GC project with permissions to create instances(service account with Compute Admin and Storage Admin roles).
+- **Terraform installed** on your local machine.
 
-> If you're missing any of this, check the official [Zoomcamp repo](#) _(TODO: add link)_
+> If you're missing any of this, check the official [Zoomcamp repository](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform#movie_camera-gcp-cloud-vm)
 
 
 ### ❓ What if I don`t want to use Google Cloud? 
@@ -149,5 +148,8 @@ On your GCP VM:
    sudo docker compose build
    sudo docker compose up
 ````
-> 📝 Check `de-zoomcamp-infrastracture/docker/README.md` for containers descriptions and SSH tunneling how-to.
+> 📝 Check `de-zoomcamp-infrastracture/docker/README.md` for
+>  - containers descriptions
+>  - dealing with Airflow dependencies how-to
+>  - SSH tunneling how-to
 
