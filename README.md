@@ -1,9 +1,9 @@
 # 🛠️ Setting up a VM and Docker Containers for the DE Zoomcamp course
 
-**_In process..._**
+**_Readme file is in process..._**
 <em>
  TODO:
-* terraform/terraform_install_docker.bash - fixate versions
+* terraform/terraform_install_docker.bash - fixate versions instead of comments
 * add comment about stable IP
 </em>
 
