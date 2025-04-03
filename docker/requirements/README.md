@@ -8,7 +8,7 @@ requirements-python.txt is generated automatically to garantee comparability wit
 To add new libraries to Jupyter and Airflow worker container's images 
 1. Add libraries in requirements-python.in
 2. Run
-    bash refresh_dependencies.bash
+    bash refresh_requirements.bash 
 It will create temporaly containrer and generate 
 
 To update requirements for a new Airflow version 
@@ -16,7 +16,4 @@ To update requirements for a new Airflow version
 2. Update constraints-airflow.txt
     fetch https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt >> constraints-airflow.txt
 3. Run
-    bash refresh_dependencies.bash
-
-
-
+    bash refresh_requirements.bash 

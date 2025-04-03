@@ -1,5 +1,8 @@
 --constraint constraints-airflow.txt
 beautifulsoup4
+dlt
+gcsfs
+google-cloud-storage
 matplotlib
 matplotlib-inline
 numpy
@@ -9,6 +12,7 @@ pandas
 psycopg2-binary
 pyarrow
 requests
+s3fs
 seaborn
 SQLAlchemy
 html5lib
