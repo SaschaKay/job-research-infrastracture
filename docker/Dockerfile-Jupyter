@@ -4,7 +4,9 @@ COPY ./requirements/requirements-python.txt /
 
 USER root
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends vim git
+  && apt-get install -y --no-install-recommends vim git \
+  && groupadd -g 9999 sharedconfig \ 
+  && usermod -aG sharedconfig jovyan 
   
 USER jovyan
 ENV PATH="$HOME/.local/bin:$PATH"

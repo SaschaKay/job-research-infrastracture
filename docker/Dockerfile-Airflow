@@ -6,7 +6,9 @@ COPY ./requirements/requirements-python.txt /
 
 USER root
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends vim 
+  && apt-get install -y --no-install-recommends vim \
+  && groupadd -g 9999 sharedconfig \ 
+  && usermod -aG sharedconfig airflow 
   
 USER airflow
 

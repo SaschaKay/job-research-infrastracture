@@ -1,19 +1,32 @@
 
 services:
+  init_shared_config:
+    image: busybox
+    volumes:
+      - /opt/docker/shared_config:${SHARED_CONFIG}
+    command: >
+      sh -c "mkdir -p ${SHARED_CONFIG} &&
+             chown -R root:9999 ${SHARED_CONFIG} && #9999 - sharedconfig group
+             chmod -R 750 ${SHARED_CONFIG}" #rwx for root and, rx for sharedconfig, nothing for others
+
   jupyter:
     build:
       context: .
       dockerfile: Dockerfile-Jupyter
     container_name: jupyter
     restart: unless-stopped
+    depends_on:
+      - init_shared_config
     environment:
-      - JUPYTER_ENABLE_LAB=yes
+      JUPYTER_ENABLE_LAB: yes
+      GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}
     ports:
       - "8888:8888" 
       - "8889:8889"
       - "5000:5000"  
     volumes:
       - jupyter_data:/home/jovyan/work
+      - /opt/docker/shared_config:${SHARED_CONFIG}
     command: start-notebook.sh --NotebookApp.token=''
 
   postgres:
@@ -100,6 +113,7 @@ services:
     depends_on:
         - postgres
         - init-airflow
+        - init_shared_config
     environment:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ${AIRFLOW__DATABASE__SQL_ALCHEMY_CONN}
       AIRFLOW_UID: 50000
@@ -111,12 +125,14 @@ services:
       _AIRFLOW_WWW_USER_USERNAME: ${POSTGRES_USER}
       _AIRFLOW_WWW_USER_PASSWORD: ${POSTGRES_PASSWORD}
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: True
-      AIRFLOW__CORE__LOAD_EXAMPLES: False       
+      AIRFLOW__CORE__LOAD_EXAMPLES: False   
+      GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}    
     volumes:
       - /opt/docker/airflow/dags:/opt/airflow/dags
       - /opt/docker/airflow/logs:/opt/airflow/logs
       - /opt/docker/airflow/google:/opt/airflow/google:ro
-      - airflow_shared_data:/opt/airflow/shared    
+      - airflow_shared_data:/opt/airflow/shared
+      - /opt/docker/shared_config:${SHARED_CONFIG}
 
   webserver:
     build: 
@@ -134,6 +150,7 @@ services:
         - postgres
         - init-airflow
         - scheduler
+        - init_shared_config
     environment:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ${AIRFLOW__DATABASE__SQL_ALCHEMY_CONN}
       AIRFLOW_UID: 50000
@@ -150,7 +167,8 @@ services:
       - /opt/docker/airflow/dags:/opt/airflow/dags
       - /opt/docker/airflow/logs:/opt/airflow/logs
       - /opt/docker/airflow/google:/opt/airflow/google:ro
-      - airflow_shared_data:/opt/airflow/shared               
+      - airflow_shared_data:/opt/airflow/shared
+      - /opt/docker/shared_config:${SHARED_CONFIG}              
 
     user: "50000:0"
     ports:
