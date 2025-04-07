@@ -1,6 +1,9 @@
 --constraint constraints-airflow.txt
 beautifulsoup4
+black
 dlt
+dlt[bigquery]
+dlt[gcs]
 gcsfs
 google-cloud-storage
 matplotlib
@@ -16,3 +19,4 @@ s3fs
 seaborn
 SQLAlchemy
 html5lib
+jupyter-black
