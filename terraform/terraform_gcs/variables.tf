@@ -1,9 +1,5 @@
-variable "project_name" {
-  default = "de-zoomcamp-2025"
-}
-
 variable "environment" {
-  default = "dev"
+  default = "prod"
 }
 
 variable "gcs_region" {
@@ -27,7 +23,7 @@ variable "vm_size" {
 
 variable "vm_name" {
   description = "Compute Instance Device Name"
-  default     = "instance-de-zoomcamp-2025-dev"
+  default     = "instance-job-research-prod"
 }
 
 variable "docker_sourse" {
@@ -56,12 +52,12 @@ variable "vm_image" {
 
 variable "bq_dataset_id" {
   description = "BigQuery Dataset ID"
-  default     = "demo_dataset"
+  default     = "job_postings"
 }
 
 variable "gcs_bucket_name" {
   description = "Storage Bucket Name"
-  default     = "de-zoomcamp-2025-dev-terra-bucket"
+  default     = "job-postings-bucket-prod"
 }
 
 
