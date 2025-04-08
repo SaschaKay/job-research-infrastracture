@@ -9,9 +9,6 @@
 | `jupyter`       | Jupyter Lab environment for development and experimentation   | 8888, 8889, 5000       | 
 | `postgres`      | PostgreSQL database instance for metadata and storage         | 5432                   |
 | `pgadmin`       | Web UI for managing PostgreSQL                                | 5055 (mapped to port 80) | 
-| `init-airflow`  | One-time Airflow setup: DB migration, user creation           | —                      |
-| `scheduler`     | Airflow scheduler and worker services                         | —                      | 
-| `webserver`     | Airflow web UI                                                | 8080                   | 
 
 ## 🗂️ Docker Volumes
 
@@ -22,7 +19,6 @@ Data in these named volumes persists between container restarts.
 | `postgres_data`       | `postgres`        | Stores PostgreSQL database files (`/var/lib/postgresql/data`)          |
 | `pgadmin_data`        | `pgadmin`         | Stores pgAdmin configuration and session data (`/var/lib/pgadmin`)     |
 | `jupyter_data`        | `jupyter`         | Stores Jupyter notebooks and outputs (`/home/jovyan/work`)             |
-| `airflow_shared_data` | `init-airflow`, `scheduler`, `webserver` | Shared initialization status and configuration between Airflow services (`/opt/airflow/shared`) |
 
 
 ## 🌐 Exposed Ports
@@ -36,7 +32,6 @@ Ports mapped from containers to the host system to enable access to web interfac
 | `5000`    | `jupyter`     | `5000`        | Custom dev port (e.g., Flask app)       |
 | `5432`    | `postgres`    | `5432`        | PostgreSQL access                       |
 | `5055`    | `pgadmin`     | `80`          | pgAdmin web UI                          |
-| `8080`    | `webserver`   | `8080`        | Airflow web UI                          |
 
 ### Accessing Container Ports via SSH Tunnels
 
@@ -54,7 +49,7 @@ After running the command, open <http://localhost:LOCAL_PORT> in your browser.
 
 
 
-> 📝 Jupiter Notebook automatically assigns new ports for each new process. To see running notebooks and their port numbers, use:
+> 📝 VS Code automatically assigns new ports for each new process. To see running notebooks and their port numbers, use:
 > ```bash
 > docker exec -it <jupyter_container_name> jupyter notebook list # shows the running notebooks and their port numbers
 > ```
