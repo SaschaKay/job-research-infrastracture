@@ -23,7 +23,7 @@ variable "vm_size" {
 
 variable "vm_name" {
   description = "Compute Instance Device Name"
-  default     = "instance-job-research-prod"
+  default     = "instance-jobs-research-prod"
 }
 
 variable "docker_sourse" {
@@ -52,12 +52,12 @@ variable "vm_image" {
 
 variable "bq_dataset_id" {
   description = "BigQuery Dataset ID"
-  default     = "job_postings"
+  default     = "jobs_postings"
 }
 
 variable "gcs_bucket_name" {
   description = "Storage Bucket Name"
-  default     = "job-postings-bucket-prod"
+  default     = "jobs-postings-bucket-prod"
 }
 
 

@@ -15,8 +15,8 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 # Test installation
-docker --version #Docker version 28.0.1, build 068a01e
-docker compose version #Docker Compose version v2.33.1
+echo docker --version #Docker version 28.0.1, build 068a01e
+echo docker compose version #Docker Compose version v2.33.1
 docker run hello-world
 
 #will be needed later for Airflow initialisation
