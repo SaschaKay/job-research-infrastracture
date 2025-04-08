@@ -4,10 +4,11 @@ COPY ./requirements/requirements-python.txt /
 
 USER root
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends vim git openssh-client\
+  && apt-get install -y --no-install-recommends vim git openssh-client \
   && groupadd -g 9999 sharedconfig \ 
   && usermod -aG sharedconfig jovyan 
   
 USER jovyan
 ENV PATH="$HOME/.local/bin:$PATH"
-RUN pip install -r /requirements-python.txt
+RUN pip install -r /requirements-python.txt\
+  && mkdir -p /home/jovyan/.ssh # persistent volume

@@ -27,6 +27,7 @@ services:
     volumes:
       - jupyter_data:/home/jovyan/work
       - /opt/docker/shared_config:${SHARED_CONFIG}
+      - jupyter_keys:/home/jovyan/.ssh
     command: start-notebook.sh --NotebookApp.token=''
 
   postgres:
@@ -71,3 +72,4 @@ volumes:
   postgres_data:
   pgadmin_data:
   jupyter_data:
+  jupyter_keys:
