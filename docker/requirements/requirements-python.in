@@ -6,6 +6,7 @@ dlt[bigquery]
 dlt[gcs]
 gcsfs
 google-cloud-storage
+google-cloud-bigquery-storage
 matplotlib
 matplotlib-inline
 numpy

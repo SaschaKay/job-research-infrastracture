@@ -13,7 +13,7 @@ provider "google" {
   region       = var.gcs_region
 }
 
-resource "google_storage_bucket" "demo-bucket" {
+resource "google_storage_bucket" "job_postings" {
   name          = var.gcs_bucket_name
   location      = var.gcs_location
   force_destroy = true
@@ -27,9 +27,13 @@ resource "google_storage_bucket" "demo-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+
+  versioning {
+    enabled = true
+  }
 }
 
-resource "google_bigquery_dataset" "demo_dataset" {
+resource "google_bigquery_dataset" "job_postings_dataset" {
   dataset_id = var.bq_dataset_id
   location   = var.gcs_location
 }
@@ -39,14 +43,14 @@ resource "google_compute_address" "static_ip" {
   region = var.gcs_location
 }
 
-resource "google_compute_instance" "demo_instance" {
+resource "google_compute_instance" "job_postings_instance" {
   boot_disk {
     auto_delete = true
     device_name = var.vm_name
 
     initialize_params {
       image = var.vm_image
-      size  = 25
+      size  = 30
       type  = "pd-balanced"
     }
 
@@ -54,7 +58,11 @@ resource "google_compute_instance" "demo_instance" {
   }
 
   can_ip_forward      = false
-  deletion_protection = false
+  deletion_protection = true
+
+    metadata = {
+    enable-oslogin : "TRUE"
+  }
 
   labels = {
     goog-ec-src = "vm_add-tf"
