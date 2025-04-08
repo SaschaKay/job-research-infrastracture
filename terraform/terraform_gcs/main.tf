@@ -13,7 +13,7 @@ provider "google" {
   region       = var.gcs_region
 }
 
-resource "google_storage_bucket" "job_postings" {
+resource "google_storage_bucket" "jobs_postings" {
   name          = var.gcs_bucket_name
   location      = var.gcs_location
   force_destroy = true
@@ -33,7 +33,7 @@ resource "google_storage_bucket" "job_postings" {
   }
 }
 
-resource "google_bigquery_dataset" "job_postings_dataset" {
+resource "google_bigquery_dataset" "jobs_postings_dataset" {
   dataset_id = var.bq_dataset_id
   location   = var.gcs_location
 }
@@ -43,7 +43,7 @@ resource "google_compute_address" "static_ip" {
   region = var.gcs_location
 }
 
-resource "google_compute_instance" "job_postings_instance" {
+resource "google_compute_instance" "jobs_postings_instance" {
   boot_disk {
     auto_delete = true
     device_name = var.vm_name
