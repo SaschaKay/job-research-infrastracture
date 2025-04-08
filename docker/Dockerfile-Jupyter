@@ -4,7 +4,7 @@ COPY ./requirements/requirements-python.txt /
 
 USER root
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends vim git \
+  && apt-get install -y --no-install-recommends vim git openssh-client\
   && groupadd -g 9999 sharedconfig \ 
   && usermod -aG sharedconfig jovyan 
   
