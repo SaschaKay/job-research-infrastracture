@@ -112,6 +112,7 @@ google-api-core[grpc]==2.19.1
     # via
     #   -c ./constraints-airflow.txt
     #   google-cloud-bigquery
+    #   google-cloud-bigquery-storage
     #   google-cloud-core
     #   google-cloud-storage
     #   pandas-gbq
@@ -122,6 +123,7 @@ google-auth==2.32.0
     #   google-api-core
     #   google-auth-oauthlib
     #   google-cloud-bigquery
+    #   google-cloud-bigquery-storage
     #   google-cloud-core
     #   google-cloud-storage
     #   pandas-gbq
@@ -137,6 +139,8 @@ google-cloud-bigquery==3.20.1
     #   -c ./constraints-airflow.txt
     #   dlt
     #   pandas-gbq
+google-cloud-bigquery-storage==2.30.0
+    # via -r ./requirements-python.in
 google-cloud-core==2.4.1
     # via
     #   -c ./constraints-airflow.txt
@@ -314,10 +318,12 @@ proto-plus==1.24.0
     # via
     #   -c ./constraints-airflow.txt
     #   google-api-core
+    #   google-cloud-bigquery-storage
 protobuf==4.25.3
     # via
     #   -c ./constraints-airflow.txt
     #   google-api-core
+    #   google-cloud-bigquery-storage
     #   googleapis-common-protos
     #   grpcio-status
     #   proto-plus
