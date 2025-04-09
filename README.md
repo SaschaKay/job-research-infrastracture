@@ -4,14 +4,12 @@
 ## 📚 Table of Contents
 <!-- GitHub-style manual TOC -->
 - [Before starting](#before-starting)
-- [What if I don’t want to use Google Cloud?](#what-if-i-dont-want-to-use-google-cloud_)
-- [How to create a VM in Google Cloud?](#how-to-create-a-vm-in-google-cloud_)
-- [How to set up GCP OS Login?](#how-to-set-up-gcp-os-login-optional-but-recommended_)
-- [How to build and run containers?](#how-to-build-and-run-containers_)
+- [How to create a VM in Google Cloud?](#vm)
+- [How to set up GCP OS Login?](#os_login)
+- [How to build and run containers?](#docker)
 
-> 📝 Check <mark >de-zoomcamp-infrastracture/docker/README.md</mark> for containers descriptions and SSH tunneling how-to.
 
-## 🚦 Before starting
+## 🚦 Before starting <a id='before-starting'></a>
 
 You should already have:
 
@@ -22,7 +20,7 @@ You should already have:
 > If you're missing any of this, check the official [Zoomcamp repository](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform#movie_camera-gcp-cloud-vm)
 
 
-## 🛠️ How to create a VM in Google Cloud?
+## 🛠️ How to create a VM in Google Cloud? <a id='vm'></a>
 
 1. Copy this repository to a machine with a configured SSH connection to your Google Cloud
 2. Change the key file in `/terraform/terraform_gcs/keys/` (in this folder, you can see an _example_ of how this file looks).
@@ -38,7 +36,7 @@ You should already have:
 
 
   
-## 🔐 How to set up GCP OS Login? (optional, but recommended)
+## 🔐 How to set up GCP OS Login? (optional, but recommended)  <a id='os_login'></a>
 
 OS Login allows secure, reusable SSH access without rotating temporary keys.
 1. Create SSH key on your local machine (locally, e.g., in WSL)
@@ -58,10 +56,10 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
     3. Save
 
 
-   >  :memo: This will create a new user with the name being your email address with all special symbols replaced by '_' _(underscore)_ (for example, your_email_gmail_com)
+   >  This will create a new user with the name being your email address with all special symbols replaced by '_' _(underscore)_ (for example, your_email_gmail_com)
    
     
-## 💻 How to connect VS Code to VM if you work from WSL?
+## 🔄 How to connect VS Code to VM if you work from WSL?  <a id='wsl'></a>
 
 1. In WSL:
    
@@ -75,9 +73,7 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
    (Get-Content "$env:USERPROFILE\.ssh\known_hosts") -notmatch "YOUR\.IP\.WITH\.BACKSLASHES" | Set-Content "$env:USERPROFILE\.ssh\known_hosts"
 ````
       
-### 🔁 How to create a VM name alias?
-
-Add in `~/.ssh/config`
+4. (Optional) To create a VM name alias, add in `~/.ssh/config`
 
 ````bash
    Host YOUR_VM_ALIAS
@@ -87,7 +83,7 @@ Add in `~/.ssh/config`
 ````
 
 
-## 🧱 How to build and run containers?
+## 🐋 How to build and run containers?  <a id='docker'></a>
 
 1. Install Docker and Docker-Compose via `de-zoomcamp-infrastracture/terraform/terraform_install_docker.bash`
 2. Create `.env` file in `de-zoomcamp-infrastracture/docker/`, copy `.env.txt` contents in your `.env` file
@@ -98,7 +94,7 @@ Add in `~/.ssh/config`
    sudo docker compose build
    sudo docker compose up
 ````
-> 📝 Check `/docker/README.md` for
+>  Check `/docker/README.md` for
 >  - containers descriptions
 >  - dealing with Airflow dependencies how-to
 >  - SSH tunneling how-to
