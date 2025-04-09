@@ -3,13 +3,12 @@
 
 ## 📚 Table of Contents
 <!-- GitHub-style manual TOC -->
-- [Before starting](#before-starting)
+- [Before starting](#🚦#-before-starting)
 - [What if I don’t want to use Google Cloud?](#what-if-i-dont-want-to-use-google-cloud_)
 - [How to create a VM in Google Cloud?](#how-to-create-a-vm-in-google-cloud_)
 - [How to set up GCP OS Login?](#how-to-set-up-gcp-os-login-optional-but-recommended_)
-- [How to build and run containers?](#how-to-build-and-run-containers_)
+- [How to build and run containers?](#🐋-how-to-build-and-run-containers_)
 
-> Check <mark >de-zoomcamp-infrastracture/docker/README.md</mark> for containers descriptions and SSH tunneling how-to.
 
 ## 🚦 Before starting
 
