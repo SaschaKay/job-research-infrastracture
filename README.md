@@ -9,7 +9,7 @@
 - [How to set up GCP OS Login?](#how-to-set-up-gcp-os-login-optional-but-recommended_)
 - [How to build and run containers?](#how-to-build-and-run-containers_)
 
-> 📝 Check <mark >de-zoomcamp-infrastracture/docker/README.md</mark> for containers descriptions and SSH tunneling how-to.
+> Check <mark >de-zoomcamp-infrastracture/docker/README.md</mark> for containers descriptions and SSH tunneling how-to.
 
 ## 🚦 Before starting
 
@@ -58,10 +58,10 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
     3. Save
 
 
-   >  :memo: This will create a new user with the name being your email address with all special symbols replaced by '_' _(underscore)_ (for example, your_email_gmail_com)
+   >  This will create a new user with the name being your email address with all special symbols replaced by '_' _(underscore)_ (for example, your_email_gmail_com)
    
     
-## 💻 How to connect VS Code to VM if you work from WSL?
+## 🔄 How to connect VS Code to VM if you work from WSL?
 
 1. In WSL:
    
@@ -75,9 +75,7 @@ OS Login allows secure, reusable SSH access without rotating temporary keys.
    (Get-Content "$env:USERPROFILE\.ssh\known_hosts") -notmatch "YOUR\.IP\.WITH\.BACKSLASHES" | Set-Content "$env:USERPROFILE\.ssh\known_hosts"
 ````
       
-### 🔁 How to create a VM name alias?
-
-Add in `~/.ssh/config`
+4. (Optional) To create a VM name alias, add in `~/.ssh/config`
 
 ````bash
    Host YOUR_VM_ALIAS
@@ -87,7 +85,7 @@ Add in `~/.ssh/config`
 ````
 
 
-## 🧱 How to build and run containers?
+## 🐋 How to build and run containers?
 
 1. Install Docker and Docker-Compose via `de-zoomcamp-infrastracture/terraform/terraform_install_docker.bash`
 2. Create `.env` file in `de-zoomcamp-infrastracture/docker/`, copy `.env.txt` contents in your `.env` file
@@ -98,7 +96,7 @@ Add in `~/.ssh/config`
    sudo docker compose build
    sudo docker compose up
 ````
-> 📝 Check `/docker/README.md` for
+>  Check `/docker/README.md` for
 >  - containers descriptions
 >  - dealing with Airflow dependencies how-to
 >  - SSH tunneling how-to
