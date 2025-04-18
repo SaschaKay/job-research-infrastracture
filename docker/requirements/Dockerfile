@@ -6,7 +6,8 @@ WORKDIR $AIRFLOW_HOME
 
 COPY constraints-airflow.txt requirements-python.in ./
 
-RUN pip install pip-tools && \
+RUN pip install --upgrade pip &&\
+    pip install pip-tools && \
     pip-compile ./requirements-python.in && \
     pip install -r ./requirements-python.txt 
     
