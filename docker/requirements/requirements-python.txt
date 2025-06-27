@@ -60,7 +60,7 @@ click==8.1.7
     #   -c ./constraints-airflow.txt
     #   black
     #   dlt
-contourpy==1.3.1
+contourpy==1.3.2
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
@@ -74,13 +74,13 @@ decorator==5.1.1
     #   -c ./constraints-airflow.txt
     #   gcsfs
     #   ipython
-dlt[bigquery,gcs]==1.5.0
+dlt[bigquery]==1.5.0
     # via -r ./requirements-python.in
 executing==2.0.1
     # via
     #   -c ./constraints-airflow.txt
     #   stack-data
-fonttools==4.57.0
+fonttools==4.58.4
     # via matplotlib
 frozenlist==1.4.1
     # via
@@ -112,6 +112,7 @@ google-api-core[grpc]==2.19.1
     # via
     #   -c ./constraints-airflow.txt
     #   google-cloud-bigquery
+    #   google-cloud-bigquery-storage
     #   google-cloud-core
     #   google-cloud-storage
     #   pandas-gbq
@@ -122,6 +123,7 @@ google-auth==2.32.0
     #   google-api-core
     #   google-auth-oauthlib
     #   google-cloud-bigquery
+    #   google-cloud-bigquery-storage
     #   google-cloud-core
     #   google-cloud-storage
     #   pandas-gbq
@@ -137,6 +139,8 @@ google-cloud-bigquery==3.20.1
     #   -c ./constraints-airflow.txt
     #   dlt
     #   pandas-gbq
+google-cloud-bigquery-storage==2.32.0
+    # via -r ./requirements-python.in
 google-cloud-core==2.4.1
     # via
     #   -c ./constraints-airflow.txt
@@ -176,7 +180,7 @@ grpcio-status==1.62.2
     # via
     #   -c ./constraints-airflow.txt
     #   google-api-core
-hexbytes==1.3.0
+hexbytes==1.3.1
     # via dlt
 html5lib==1.1
     # via -r ./requirements-python.in
@@ -209,9 +213,9 @@ jupyter-black==0.4.0
     # via -r ./requirements-python.in
 kiwisolver==1.4.8
     # via matplotlib
-makefun==1.15.6
+makefun==1.16.0
     # via dlt
-matplotlib==3.10.1
+matplotlib==3.10.3
     # via
     #   -r ./requirements-python.in
     #   seaborn
@@ -282,7 +286,7 @@ pathspec==0.12.1
     # via
     #   -c ./constraints-airflow.txt
     #   black
-pathvalidate==3.2.3
+pathvalidate==3.3.1
     # via dlt
 pendulum==3.0.0
     # via
@@ -292,7 +296,7 @@ pexpect==4.9.0
     # via
     #   -c ./constraints-airflow.txt
     #   ipython
-pillow==11.1.0
+pillow==11.2.1
     # via matplotlib
 platformdirs==4.2.2
     # via
@@ -314,10 +318,12 @@ proto-plus==1.24.0
     # via
     #   -c ./constraints-airflow.txt
     #   google-api-core
+    #   google-cloud-bigquery-storage
 protobuf==4.25.3
     # via
     #   -c ./constraints-airflow.txt
     #   google-api-core
+    #   google-cloud-bigquery-storage
     #   googleapis-common-protos
     #   grpcio-status
     #   proto-plus
@@ -393,7 +399,7 @@ requests-oauthlib==1.3.1
     # via
     #   -c ./constraints-airflow.txt
     #   google-auth-oauthlib
-requirements-parser==0.11.0
+requirements-parser==0.13.0
     # via dlt
 rsa==4.9
     # via
@@ -409,6 +415,10 @@ semver==3.0.2
     # via
     #   -c ./constraints-airflow.txt
     #   dlt
+sentinels==1.0.0
+    # via
+    #   -c ./constraints-airflow.txt
+    #   -r ./requirements-python.in
 simplejson==3.20.1
     # via dlt
 six==1.16.0
@@ -441,7 +451,7 @@ time-machine==2.14.2
     # via
     #   -c ./constraints-airflow.txt
     #   pendulum
-tokenize-rt==6.1.0
+tokenize-rt==6.2.0
     # via black
 tomlkit==0.13.0
     # via
@@ -456,10 +466,6 @@ types-pytz==2024.1.0.20240417
     # via
     #   -c ./constraints-airflow.txt
     #   pandas-stubs
-types-setuptools==70.3.0.20240710
-    # via
-    #   -c ./constraints-airflow.txt
-    #   requirements-parser
 typing-extensions==4.12.2
     # via
     #   -c ./constraints-airflow.txt

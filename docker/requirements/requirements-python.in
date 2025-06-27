@@ -17,6 +17,7 @@ pyarrow
 requests
 s3fs
 seaborn
+sentinels
 SQLAlchemy
 html5lib
 jupyter-black
