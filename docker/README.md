@@ -1,5 +1,5 @@
-> ❗ Create `.env` file using `env.txt` as a template.
-> 
+> [!IMPORTANT] 
+> Create `.env` file using `env.txt` as a template.
 > Do not push your `.env` file in the repository.
 
 ## 🐳 Project Containers Overview
