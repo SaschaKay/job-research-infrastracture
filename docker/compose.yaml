@@ -19,6 +19,7 @@ services:
     depends_on:
       - init_shared_config
     environment:
+      ENV: ${ENV}
       JUPYTER_ENABLE_LAB: yes
       GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}
     ports:
@@ -134,7 +135,8 @@ services:
       _AIRFLOW_WWW_USER_USERNAME: ${POSTGRES_USER}
       _AIRFLOW_WWW_USER_PASSWORD: ${POSTGRES_PASSWORD}
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: True
-      AIRFLOW__CORE__LOAD_EXAMPLES: False   
+      AIRFLOW__CORE__LOAD_EXAMPLES: False
+      ENV: ${ENV}  
       GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS}    
     volumes:
       - /opt/docker/airflow/dags:/opt/airflow/dags
@@ -173,7 +175,8 @@ services:
       _AIRFLOW_WWW_USER_USERNAME: ${POSTGRES_USER}
       _AIRFLOW_WWW_USER_PASSWORD: ${POSTGRES_PASSWORD}
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: True
-      AIRFLOW__CORE__LOAD_EXAMPLES: False   
+      AIRFLOW__CORE__LOAD_EXAMPLES: False
+      ENV: ${ENV}
     volumes:
       - /opt/docker/airflow/dags:/opt/airflow/dags
       - /opt/docker/airflow/logs:/opt/airflow/logs
