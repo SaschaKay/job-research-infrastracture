@@ -1,6 +1,4 @@
-!!! Do not change file requirements-python.txt manually !!!
-
-RN, this project does not use Airflow. However, in the future, it will migrate to Airflow. This script generates requirements compatible with Airflow to minimize adjustments needed to migration.
+   > 🙏🛑 Do not change file requirements-python.txt manually 🛑🙏
 
 File requirements-python.txt contains a list of libraries with versions (with dependencies) included in Jupyter and Airflow worker containers' images. It is based on:
 * required Python libraries from requirements-python.in 
