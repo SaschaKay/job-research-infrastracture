@@ -1,5 +1,5 @@
-#excample file
-#real file will have .json extension
+# EXAMPLE FILE, ko keys are real
+# create a file my-creds.json with this structure
 
 {
   "type": "service_account",
