@@ -118,6 +118,8 @@ services:
             echo 'Waiting for init-airflow to complete...';
             sleep 2;
         done;
+        sudo chown airflow:root /opt/airflow/repos &&
+        sudo chmod -R 770 /opt/airflow/repos;
         airflow scheduler
         "
     depends_on:
@@ -157,6 +159,7 @@ services:
             echo 'Waiting for init-airflow to complete...';
             sleep 2;
         done;
+
         airflow webserver
         "
     depends_on:
